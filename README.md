@@ -29,34 +29,34 @@ Water Sort Puzzle Algorithm
 //Bottle class는 각 병에 해당합니다.
 public static boolean sort(ArrayList<String> history, Bottle[] bottles, ArrayList<String> Answer) { // 정렬 함수는 병의 목록, 실행기록, 정답 기록을 매개변수로 전달 받습니다. 또한 boolean값을 반환합니다.
 
-		Bottle[] origin = copy(bottles); // origin은 병 배열의 현재 상태를 먼저 저장합니다. 이는 수를 되돌릴 수 있도록 하여 
+	Bottle[] origin = copy(bottles); // origin은 병 배열의 현재 상태를 먼저 저장합니다. 이는 수를 되돌릴 수 있도록 하여 
 
-		for (int i = 0; i < bottles.length; i++) {
-			for (int j = 0; j < bottles.length; j++) { // 반복문을 통해 각 병에 대해 모든 경우의 수를 확인합니다.
-				if (i != j && bottles[i].checkInsert(bottles[j])) { //i가 j와 다른 경우, 그리고 j병에 i병을 이동할 수 있는 경우를 확인합니다.
+	for (int i = 0; i < bottles.length; i++) {
+		for (int j = 0; j < bottles.length; j++) { // 반복문을 통해 각 병에 대해 모든 경우의 수를 확인합니다.
+			if (i != j && bottles[i].checkInsert(bottles[j])) { //i가 j와 다른 경우, 그리고 j병에 i병을 이동할 수 있는 경우를 확인합니다.
 
-					history.add(toString(bottles)); // 병의 상태를 기록합니다.
-					bottles[j].insert(bottles[i]); // 병j로 병i의 내용물을 이동시킵니다.
-					if (history.contains(toString(bottles))) { // 이동 후 병의 상태가 기록에 포함되어 있다면 무한 루프를 방지하기 위해 false를 반환합니다.
-						return false;
-					}
-					Answer.add(i + "->" + j); // 정답 기록에 이동 내역을 저장합니다.
-					if (isSorted(bottles)) { // 이동 후 병의 상태가 정렬되었는지 확인합니다.
-						return true; // 정렬된 상태라면 true를 반환합니다.
-					} else { 
-						if (sort(history, bottles, Answer)) { // 정렬되지 않은 상태라면 다시 정렬 함수를 호출합니다. 또한 반환값을 확인합니다.
-							return true; // true 반환 : 정렬이 완료되었음을 의미합니다!
-						} else {
-							bottles = copy(origin); // false 반환 : 무한 루프, 이동 가능한 수 없음 등으로 해당 이동이 잘못되었음을 의미합니다. 이동을 취소합니다.(원본으로 다시 되돌립니다)
-							history.remove(history.size() - 1); //실행 기록과 정답 기록에서 내용을 지웁니다.
-							Answer.remove(Answer.size() - 1); //무한
-						}
+				history.add(toString(bottles)); // 병의 상태를 기록합니다.
+				bottles[j].insert(bottles[i]); // 병j로 병i의 내용물을 이동시킵니다.
+				if (history.contains(toString(bottles))) { // 이동 후 병의 상태가 기록에 포함되어 있다면 무한 루프를 방지하기 위해 false를 반환합니다.
+					return false;
+				}
+				Answer.add(i + "->" + j); // 정답 기록에 이동 내역을 저장합니다.
+				if (isSorted(bottles)) { // 이동 후 병의 상태가 정렬되었는지 확인합니다.
+					return true; // 정렬된 상태라면 true를 반환합니다.
+				} else { 
+					if (sort(history, bottles, Answer)) { // 정렬되지 않은 상태라면 다시 정렬 함수를 호출합니다. 또한 반환값을 확인합니다.
+						return true; // true 반환 : 정렬이 완료되었음을 의미합니다!
+					} else {
+						bottles = copy(origin); // false 반환 : 무한 루프, 이동 가능한 수 없음 등으로 해당 이동이 잘못되었음을 의미합니다. 이동을 취소합니다.(원본으로 다시 되돌립니다)
+						history.remove(history.size() - 1); //실행 기록과 정답 기록에서 내용을 지웁니다.
+						Answer.remove(Answer.size() - 1); //무한
 					}
 				}
-
 			}
+
 		}
-		return false; // 더 이상 움질일 수 없음을 의미하고 false를 반환합니다.
 	}
+	return false; // 더 이상 움질일 수 없음을 의미하고 false를 반환합니다.
+}
 ```
 
