@@ -77,20 +77,20 @@ public static boolean sort(ArrayList<String> history, Bottle[] bottles, ArrayLis
 
 > Bottle.java
 > ----
-> (변수) String[] bottle : 병의 내용물을 문자열 배열로 저장합니다.
-> (생성자) Bottle(String... waters) : 병의 내용물을 저장하며 길이를 결정하는 생성자입니다.
-> (메서드) void print() : 병의 내용물을 출력합니다.
-> (메서드) String toString() : 병의 내용물을 한줄의 문자열로 출력합니다. (이는 실행 기록 내부에 저장하기 편하게 변경하기 위함입니다.)
-> (메서드) boolean checkInsert(Bottle target) : 해당 병(this)에서 대상(target)으로 이동이 가능한지 확인합니다.
-> (메서드) void insert(Bottle target) : 해당 병(this)에서 대상(target)으로 내용물을 이동시킵니다.
-> (메서드) void sorted() : 병이 정렬된 상태인지 확인합니다.
-bottle class는 각각의 병에 대한 기능과 그 내용물에 대한 정의를 포함하고 있습니다.
+> (변수) String[] bottle : 병의 내용물을 문자열 배열로 저장합니다. <br>
+> (생성자) Bottle(String... waters) : 병의 내용물을 저장하며 길이를 결정하는 생성자입니다. <br>
+> (메서드) void print() : 병의 내용물을 출력합니다. <br>
+> (메서드) String toString() : 병의 내용물을 한줄의 문자열로 출력합니다. (이는 실행 기록 내부에 저장하기 편하게 변경하기 위함입니다.) <br>
+> (메서드) boolean checkInsert(Bottle target) : 해당 병(this)에서 대상(target)으로 이동이 가능한지 확인합니다. <br>
+> (메서드) void insert(Bottle target) : 해당 병(this)에서 대상(target)으로 내용물을 이동시킵니다. <br>
+> (메서드) void sorted() : 병이 정렬된 상태인지 확인합니다. <br>
+bottle class는 각각의 병에 대한 기능과 그 내용물에 대한 정의를 포함하고 있습니다. <br>
 
 > Main.java
 > ----
-> (메서드) void main(String[] args) : 실행함수입니다.
-> (메서드) String toString(Bottle[] bottles) : 병의 배열을 모두 하나의 긴 배열로 만듭니다. (이는 실행 기록 내부에 저장하기 편하게 변경하기 위함입니다.)
-> (메서드) boolean sort(ArrayList<String> history, Bottle[] bottles, ArrayList<String> Answer) : 정렬하는 함수로써 병 배열(bottles), 실행 기록(history), 정답 기록(Answer)를 매개변수로 받습니다.
+> (메서드) void main(String[] args) : 실행함수입니다. <br>
+> (메서드) String toString(Bottle[] bottles) : 병의 배열을 모두 하나의 긴 배열로 만듭니다. (이는 실행 기록 내부에 저장하기 편하게 변경하기 위함입니다.) <br>
+> (메서드) boolean sort(ArrayList<String> history, Bottle[] bottles, ArrayList<String> Answer) : 정렬하는 함수로써 병 배열(bottles), 실행 기록(history), 정답 기록(Answer)를 매개변수로 받습니다. <br>
 > (메서드) void print(Bottle[] bottles) : 병의 배열을 출력합니다.
 
 복잡한 내용은 아니지만 해당 내용이 **Water Sort Puzzle**을 해결하기 위한 방법으로 활용되기를 바랍니다.
