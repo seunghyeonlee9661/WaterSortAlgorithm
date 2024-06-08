@@ -103,17 +103,17 @@ public class Bottle {
 		String color = null;
 		int cnt = 0;
 
-		for (int i = target.bottle.length - 1; i >= 0; i--) {
-			if (target.bottle[i] == null) {
+		for (int i = this.bottle.length - 1; i >= 0; i--) {
+			if (this.bottle[i] == null) {
 				continue;
 			} else {
 				if (color == null) {
-					color = target.bottle[i];
-					target.bottle[i] = null;
+					color = this.bottle[i];
+					this.bottle[i] = null;
 					cnt++;
 				} else {
-					if (color == target.bottle[i]) {
-						target.bottle[i] = null;
+					if (color == this.bottle[i]) {
+						this.bottle[i] = null;
 						cnt++;
 					} else {
 						break;
@@ -122,14 +122,14 @@ public class Bottle {
 			}
 		}
 
-		int i = this.bottle.length - 1;
+		int i = target.bottle.length - 1;
 
 		for (; i >= 0; i--) {
-			if (this.bottle[i] != null)
+			if (target.bottle[i] != null)
 				break;
 		}
 		for (int j = 1; j < cnt + 1; j++) {
-			this.bottle[i + j] = color;
+			target.bottle[i + j] = color;
 		}
 
 	}

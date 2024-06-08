@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
 
@@ -32,14 +31,14 @@ public class Main {
 			System.out.printf("%2d | %5s", index, str);
 			System.out.println();
 			String[] split = str.split("->");
-			origin[Integer.parseInt(split[1])].insert(origin[Integer.parseInt(split[0])]);
+			origin[Integer.parseInt(split[0])].insert(origin[Integer.parseInt(split[1])]);
 			index++;
-			try {
-				TimeUnit.SECONDS.sleep(1);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			try {
+//				TimeUnit.SECONDS.sleep(1);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		}
 		print(origin);
 	}
@@ -61,7 +60,7 @@ public class Main {
 				if (i != j && bottles[i].checkInsert(bottles[j])) {
 
 					history.add(toString(bottles));
-					bottles[j].insert(bottles[i]);
+					bottles[i].insert(bottles[j]);
 					if (history.contains(toString(bottles))) {
 						return false;
 					}
