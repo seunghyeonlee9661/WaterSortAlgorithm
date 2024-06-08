@@ -37,11 +37,11 @@ public static boolean sort(ArrayList<String> history, Bottle[] bottles, ArrayLis
 		for (int j = 0; j < bottles.length; j++) {
 		// 반복문을 통해 각 병에 대해 모든 경우의 수를 확인합니다.
 			if (i != j && bottles[i].checkInsert(bottles[j])) {
-			//i가 j와 다른 경우, 그리고 j병에 i병을 이동할 수 있는 경우를 확인합니다.
+			//i가 j와 다른 경우, 그리고 i병에서 j병으로 이동할 수 있는지 확인합니다.
 				history.add(toString(bottles));
 				// 병의 상태를 기록합니다.
-				bottles[j].insert(bottles[i]);
-				// 병j로 병i의 내용물을 이동시킵니다.
+				bottles[i].insert(bottles[j]);
+				// 병i에서 병j로 내용물을 이동시킵니다.
 				if (history.contains(toString(bottles))) {
 				// 이동 후 병의 상태가 기록에 포함되어 있다면 무한 루프를 방지하기 위해 false를 반환합니다.
 					return false;
@@ -78,11 +78,19 @@ public static boolean sort(ArrayList<String> history, Bottle[] bottles, ArrayLis
 > Bottle.java
 > ----
 > (변수) String[] bottle : 병의 내용물을 문자열 배열로 저장합니다.
+> (생성자) Bottle(String... waters) : 병의 내용물을 저장하며 길이를 결정하는 생성자입니다.
 > (메서드) void print() : 병의 내용물을 출력합니다.
-> (메서드) String toString() : 병의 내용물을 한줄의 문자열로 출력합니다. (이는 실행 기록 내부에 저장하기 편하게 변경하기 위함입니다.
-> (메서드) boolean checkInsert(Bottle target) : 해당 병(this)에 대상(target)이 이동이 가능한지 확인합니다.
-> (메서드) void insert(Bottle target) : 대상병으로 해당 병을
+> (메서드) String toString() : 병의 내용물을 한줄의 문자열로 출력합니다. (이는 실행 기록 내부에 저장하기 편하게 변경하기 위함입니다.)
+> (메서드) boolean checkInsert(Bottle target) : 해당 병(this)에서 대상(target)으로 이동이 가능한지 확인합니다.
+> (메서드) void insert(Bottle target) : 해당 병(this)에서 대상(target)으로 내용물을 이동시킵니다.
+> (메서드) void sorted() : 병이 정렬된 상태인지 확인합니다.
+bottle class는 각각의 병에 대한 기능과 그 내용물에 대한 정의를 포함하고 있습니다.
 
+> Main.java
+> ----
+> (메서드) void main(String[] args) : 실행함수입니다.
+> (메서드) String toString(Bottle[] bottles) : 병의 배열을 모두 하나의 긴 배열로 만듭니다. (이는 실행 기록 내부에 저장하기 편하게 변경하기 위함입니다.)
+> (메서드) boolean sort(ArrayList<String> history, Bottle[] bottles, ArrayList<String> Answer) : 정렬하는 함수로써 병 배열(bottles), 실행 기록(history), 정답 기록(Answer)를 매개변수로 받습니다.
+> (메서드) void print(Bottle[] bottles) : 병의 배열을 출력합니다.
 
-
-
+복잡한 내용은 아니지만 해당 내용이 **Water Sort Puzzle**을 해결하기 위한 방법으로 활용되기를 바랍니다.
