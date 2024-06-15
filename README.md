@@ -1,4 +1,4 @@
-🧩 Water Sort Puzzle Algorithm
+# 🧩 Water Sort Puzzle Algorithm
 
 ![example](https://github.com/LeeSeungHyun9661/WaterSortAlgorithm/assets/101535408/7c31888c-ae81-4cfb-8588-6572f0d5e6e7)
 
