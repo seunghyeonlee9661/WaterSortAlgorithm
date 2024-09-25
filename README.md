@@ -96,5 +96,5 @@ Based on this, the code has been written using two classes, as follows:
   - String toString(Bottle[] bottles): Converts the array of bottles into a single long array (for easy storage in the execution history).
   - boolean sort(ArrayList<String> history, Bottle[] bottles, ArrayList<String> Answer): Sorting function that takes bottles array (bottles), action history (history), and answer log (Answer) as parameters.
   - void print(Bottle[] bottles): Prints the array of bottles.
-  - 
-## While the content may seem complex, it aims to solve the Water Sort Puzzle effectively!
+ 
+  
